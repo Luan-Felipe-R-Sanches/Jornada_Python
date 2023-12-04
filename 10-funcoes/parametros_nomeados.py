@@ -15,3 +15,4 @@ def monta_computador(cpu, memoria, hd, *precos, monitor=17, **outros_atributos):
         print(f'\t\t{chave}: {valor}')
 
 monta_computador('Core i7', 16, 2, 2500, 3199, 4200, monitor=25, webcam='Webcam Multilaser', teclado='Teclado Multilaser')
+print(teste)
