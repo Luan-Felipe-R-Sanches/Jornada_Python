@@ -52,6 +52,14 @@ class Carro(Automovel):
         self.valor_fatura = numero_pedagios * VALOR_PEDAGIO_CARRO + km_rodados * VALOR_KM_RODADO_CARRO
         print(f'Fatura do Carro {self.montadora} {self.modelo} gerada com sucesso no valor R$ {self.valor_fatura:.2f}')
         Carro.valor_total_locacoes += self.valor_fatura
+    @classmethod
+    def calcular_media_locacao(cls):
+        if cls.numero_total_locacoes != 0:
+            media_locacoes = cls.valor_total_locacoes/cls.numero_total_locacoes_carro
+            print(f'O valor médio de Locação de Carro está em R${media_locacoes}/locação')
+        else:
+            print('Número total de Locações de Carros igual a zero')
+
 
 # Subclasse Moto
 class Moto(Automovel):
@@ -71,10 +79,18 @@ class Moto(Automovel):
         print(f'Fatura da Moto {self.montadora} {self.modelo} gerada com sucesso no valor R$ {self.valor_fatura:.2f}')
         Moto.valor_total_locacoes += self.valor_fatura
 
-# Função para mostrar a fatura de um automóvel
-def mostrar_fatura(automovel):
-    print(f'O valor da Fatura do Automóvel {automovel.montadora} {automovel.modelo}'
-          f' alugado por {automovel.nome_cliente} ficou no valor de R$ {automovel.valor_fatura:.2f}')
+    @classmethod
+    def calcular_media_locacao(cls):
+        if cls.numero_total_locacoes != 0:
+            media_locacoes = cls.valor_total_locacoes / cls.numero_total_locacoes_moto
+            print(f'O valor médio de Locação de Motos está em R${media_locacoes}/locação')
+        else:
+            print('Número total de Locações de Motos igual a zero')
+
+    # Função para mostrar a fatura de um automóvel
+    def mostrar_fatura(automovel):
+        print(f'O valor da Fatura do Automóvel {automovel.montadora} {automovel.modelo}'
+           f' alugado por {automovel.nome_cliente} ficou no valor de R$ {automovel.valor_fatura:.2f}')
 
 # ------------------------------------------------------------------------------------
 
